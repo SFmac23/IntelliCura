@@ -72,7 +72,7 @@ a {
 }
 
 /* =======================
-   HOW IT WORKS (MODERN EXPANDABLE CARDS)
+   HOW IT WORKS (MODERN CLICK-TO-TOGGLE CARDS)
 ======================= */
 .how-it-works {
   padding: 80px 20px;
@@ -100,8 +100,8 @@ a {
   cursor: pointer;
   overflow: hidden;
   transition: all 0.4s ease;
-  position: relative;
   padding: 20px;
+  position: relative;
 }
 
 .step:hover {
@@ -124,14 +124,14 @@ a {
   color: #2E7D32;
 }
 
-/* Active state for click/hover */
-.step.active .back {
-  opacity: 1;
-  max-height: 200px;
-}
-
+/* Active state for click */
 .step.active {
   background-color: #e8f5e9;
+}
+
+.step.active .back {
+  opacity: 1;
+  max-height: 300px; /* enough for full explanation */
 }
 
 /* =======================
@@ -207,23 +207,22 @@ a {
    CTA / NOTIFY
 ======================= */
 .cta-section {
-  padding: 100px 20px;
+  padding: 120px 20px; /* more spacing for better mobile */
   text-align: center;
   background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
   color: white;
 }
 
 .cta-section input[type="email"] {
-  padding: 10px;
+  padding: 12px;
   width: 250px;
   border: none;
   border-radius: 5px;
-  margin-right: 10px;
-  margin-bottom: 10px; /* added vertical gap */
+  margin-bottom: 15px; /* increased gap */
 }
 
 .cta-section button {
-  padding: 10px 20px;
+  padding: 12px 25px;
   border: none;
   border-radius: 5px;
   background-color: white;
@@ -280,6 +279,11 @@ footer {
     background-color: var(--primary-green);
     color: black;
   }
+
+  .cta-section button {
+    color: var(--primary-green);
+  }
+}
 
   .cta-section button {
     color: var(--primary-green);
