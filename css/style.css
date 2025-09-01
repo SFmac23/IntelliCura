@@ -121,12 +121,12 @@ a {
   max-height: 0;
   overflow: hidden;
   transition: all 0.4s ease;
-  color: #2E7D32;
+  color: #f6f6f6;
 }
 
 /* Active state for click */
 .step.active {
-  background-color: #e8f5e9;
+  background-color: #0b7113;
 }
 
 .step.active .back {
@@ -284,6 +284,7 @@ footer {
     color: var(--primary-green);
   }
 }
+
 
   .cta-section button {
     color: var(--primary-green);
