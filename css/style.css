@@ -264,7 +264,7 @@ footer {
 
   .step, .card, .b-card {
     background-color: #1a1a1a;
-    color: #3e3e3e;
+    color: #e0e0e0;
   }
 
   .features {
@@ -273,7 +273,7 @@ footer {
 
   .b-card {
     background-color: #2e7d32;
-    color: white;
+    color: rgb(83, 82, 82);
   }
 
   .cta-section {
