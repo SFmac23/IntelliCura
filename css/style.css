@@ -267,17 +267,13 @@ footer {
     color: #e0e0e0;
   }
 
-  .front {
-    color: #1a1a1a;
-  }
-
   .features {
     background-color: #121212;
   }
 
   .b-card {
     background-color: #2e7d32;
-    color: rgb(83, 82, 82);
+    color: white;
   }
 
   .cta-section {
