@@ -1,0 +1,287 @@
+/* =======================
+   RESET & BASE STYLES
+======================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  transition: all 0.3s ease;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #ffffff;
+  color: #222;
+  --primary-green: #2E7D32; /* darker healing green */
+  --secondary-green: #81C784; /* lighter green */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* =======================
+   MAINTENANCE NOTICE
+======================= */
+.maintenance-notice {
+  text-align: center;
+  padding: 10px;
+  background-color: lightgrey;
+  color: rgb(66, 92, 73);
+  font-weight: bold;
+  font-size: 17px;
+}
+
+/* =======================
+   HERO SECTION
+======================= */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  text-align: center;
+  padding: 0 20px;
+  background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+  color: white;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.cta-btn {
+  padding: 12px 25px;
+  background-color: white;
+  color: var(--primary-green);
+  border-radius: 8px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.cta-btn:hover {
+  background-color: #e0e0e0;
+}
+
+/* =======================
+   HOW IT WORKS (MODERN EXPANDABLE CARDS)
+======================= */
+.how-it-works {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.how-it-works h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+.steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.step {
+  width: 250px;
+  min-height: 120px;
+  border-radius: 12px;
+  background-color: #f0f0f0;
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  position: relative;
+  padding: 20px;
+}
+
+.step:hover {
+  box-shadow: 0px 12px 25px rgba(0,0,0,0.2);
+  transform: translateY(-5px);
+}
+
+.front {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.back {
+  font-size: 0.95rem;
+  margin-top: 10px;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  color: #2E7D32;
+}
+
+/* Active state for click/hover */
+.step.active .back {
+  opacity: 1;
+  max-height: 200px;
+}
+
+.step.active {
+  background-color: #e8f5e9;
+}
+
+/* =======================
+   FEATURES / PHASE ONE
+======================= */
+.features {
+  padding: 80px 20px;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+.features h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+.feature-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.card {
+  background-color: white;
+  padding: 20px;
+  width: 250px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 10px 25px rgba(0,0,0,0.15);
+}
+
+/* =======================
+   BEYOND / ADVANCED
+======================= */
+.beyond {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.beyond h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+.b-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.b-card {
+  background-color: #e8f5e9;
+  padding: 20px;
+  width: 250px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.b-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 10px 25px rgba(0,0,0,0.15);
+}
+
+/* =======================
+   CTA / NOTIFY
+======================= */
+.cta-section {
+  padding: 100px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+  color: white;
+}
+
+.cta-section input[type="email"] {
+  padding: 10px;
+  width: 250px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+  margin-bottom: 10px; /* added vertical gap */
+}
+
+.cta-section button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: white;
+  color: var(--primary-green);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.cta-section button:hover {
+  background-color: #e0e0e0;
+}
+
+/* =======================
+   FOOTER
+======================= */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #222;
+  color: white;
+}
+
+/* =======================
+   DARK MODE BASED ON DEVICE
+======================= */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #000000;
+    color: #e0e0e0;
+    --primary-green: #81C784;
+    --secondary-green: #2E7D32;
+  }
+
+  .maintenance-notice {
+    background-color: rgb(99, 99, 99);
+    color: rgb(105, 180, 125);
+  }
+
+  .step, .card, .b-card {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+  }
+
+  .features {
+    background-color: #121212;
+  }
+
+  .b-card {
+    background-color: #2e7d32;
+    color: white;
+  }
+
+  .cta-section {
+    background-color: var(--primary-green);
+    color: black;
+  }
+
+  .cta-section button {
+    color: var(--primary-green);
+  }
+}
