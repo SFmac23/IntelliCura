@@ -461,7 +461,7 @@ body {
     
     .btn {
         width: 100%;
-        max-width: 300px;
+        max-width: 250px;
     }
     
     .email-form {
@@ -470,7 +470,7 @@ body {
     }
     
     #emailInput {
-        width: 100%;
+        width: 90%;
     }
     
     .section {
