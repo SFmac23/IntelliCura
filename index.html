@@ -1,162 +1,286 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Venicura - The Future of Faster Healthcare</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Venicura</title>
+  <style>
+    /* Base Styles */
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      background: #000;
+      color: #fff;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(12px);
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #3eb489;
+    }
+
+    nav a {
+      margin: 0 1rem;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #3eb489;
+    }
+
+    .btn {
+      background: #3eb489;
+      padding: 0.6rem 1.2rem;
+      border-radius: 999px;
+      color: #000;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px #3eb48988;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #3eb489cc;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #000 0%, #001f2f 100%);
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      animation: fadeInDown 1.2s ease forwards;
+    }
+
+    .hero p {
+      max-width: 700px;
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      animation: fadeInUp 1.2s ease forwards;
+    }
+
+    /* Sections */
+    section {
+      padding: 4rem 2rem;
+      background: linear-gradient(180deg, #001f2f 0%, #000 100%);
+    }
+
+    section h3 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    section p.subtitle {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 3rem auto;
+      font-size: 1.1rem;
+      color: #ccc;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: #111;
+      border-radius: 1rem;
+      padding: 2rem;
+      text-align: center;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      opacity: 0;
+      transform: translateY(50px);
+    }
+
+    .card img {
+      width: 50px;
+      margin-bottom: 1rem;
+    }
+
+    .card h4 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: #3eb489;
+    }
+
+    .card:hover {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 0 20px #3eb48944;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #000;
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    /* Modal */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 2000;
+    }
+
+    .modal-content {
+      background: #111;
+      padding: 2rem;
+      border-radius: 1rem;
+      text-align: center;
+      box-shadow: 0 0 20px #3eb48988;
+      animation: popIn 0.6s ease;
+    }
+
+    .modal-content h2 {
+      margin-bottom: 1rem;
+    }
+
+    .close-btn {
+      margin-top: 1rem;
+      background: #3eb489;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from {opacity: 0; transform: translateY(-50px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(50px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes popIn {
+      from {transform: scale(0.8); opacity: 0;}
+      to {transform: scale(1); opacity: 1;}
+    }
+
+    .reveal {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+      transition: all 0.8s ease;
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <h1>Venicura</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#initials">Features</a>
+      <a href="#beyond">Future</a>
+    </nav>
+    <button class="btn" onclick="openModal()">Get Started</button>
+  </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="hero">
-        <div class="hero-bg-animation"></div>
-        <div class="floating-icons">
-            <div class="icon icon-1">⚕️</div>
-            <div class="icon icon-2">🏥</div>
-            <div class="icon icon-3">💊</div>
-            <div class="icon icon-4">🩺</div>
-            <div class="icon icon-5">❤️</div>
-        </div>
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    <span class="title-line">venicura</span>
-                    <span class="title-subtitle">The Future of Faster Healthcare</span>
-                </h1>
-                <p class="hero-subtitle">Smarter hospital flow. Less waiting. More care.</p>
-                <div class="hero-buttons">
-                    <button class="btn btn-primary" id="stepInsideBtn">STEP INSIDE</button>
-                    <button class="btn btn-secondary" id="notifyBtn">NOTIFY ME WHEN WE LAUNCH</button>
-                </div>
-            </div>
-        </div>
-    </section>
+  <div class="hero" id="home">
+    <h2>Healthcare, on your time.</h2>
+    <p>Venicura makes healthcare faster, smarter, and easier. Track wait times, check in digitally, and access AI-powered tools that bring care closer to you.</p>
+    <button class="btn" onclick="openModal()">Take me to use</button>
+  </div>
 
-    <!-- About Section -->
-    <section class="section about" id="about">
-        <div class="container">
-            <h2 class="section-title">why venicura?</h2>
-            <p class="section-text">
-                Hospitals are overloaded. Patients wait hours. VeniCura is here to change that. 
-                With real time updates, smarter queueing, and seamless flow, we help hospitals run better 
-                and patients get care faster.
-            </p>
-        </div>
-    </section>
-
-    <!-- Part A Section -->
-    <section class="section part-a" id="part-a">
-        <div class="container">
-            <div class="section-content">
-                <h2 class="section-title">PHASE ONE</h2>
-                <p class="section-description">
-                    Part A is our <strong>fast, launch-ready MVP</strong> designed to make hospital visits smoother, faster, and stress-free for patients and staff.
-                </p>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon"></div>
-                        <h3 class="feature-title">Real-Time Wait Times</h3>
-                        <p class="feature-desc">Instantly see how long you'll wait at the hospital. Reduces uncertainty and allows patients to plan their visit efficiently.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon"></div>
-                        <h3 class="feature-title">Digital Check-In</h3>
-                        <p class="feature-desc">Check in from your phone or tablet. Skip long queues and reserve your spot in the patient queue.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon"></div>
-                        <h3 class="feature-title">Pre-Registration & Forms</h3>
-                        <p class="feature-desc">Upload ID, insurance, and medical forms <strong>before arrival</strong>. Minimizes paperwork stress and speeds up hospital processing.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon"></div>
-                        <h3 class="feature-title">Patient Notifications</h3>
-                        <p class="feature-desc">Receive real-time alerts about your slot, delays, or updates. Ensures you never wait unnecessarily and stay informed.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon"></div>
-                        <h3 class="feature-title">Hospital Dashboard</h3>
-                        <p class="feature-desc">Staff see upcoming patients, expected arrivals, and hospital load. Enables better patient flow management and reduces bottlenecks.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon"></div>
-                        <h3 class="feature-title">Analytics & Insights</h3>
-                        <p class="feature-desc">Tracks average wait times, peak hours, and resource utilization. Helps hospitals <strong>optimize operations</strong> and improve patient experience.</p>
-                    </div>
-                </div>
-            
-        </div>
-    </section>
-
-    <!-- Part B Section -->
-    <section class="section part-b" id="part-b">
-        <div class="container">
-            <div class="section-content">
-                <h2 class="section-title"> BEYOND </h2>
-                <p class="section-description">
-                    Once hospitals trust VeniCura, Part B introduces <strong>AI-driven intelligence</strong> to make care faster, safer, and smarter — without replacing doctors.
-                </p>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon"></div>
-                        <h3 class="feature-title">AI Symptom Triage</h3>
-                        <p class="feature-desc">Patients enter symptoms → AI scores urgency (non-diagnostic). Critical cases flagged immediately for faster treatment.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon"></div>
-                        <h3 class="feature-title">Severity-Based Queue Reordering</h3>
-                        <p class="feature-desc">Dynamically reorganizes patient queue based on <strong>severity</strong>. Ensures patients with urgent needs are prioritized without delay.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon"></div>
-                        <h3 class="feature-title">Emergency Escalation</h3>
-                        <p class="feature-desc">Detects worsening patient conditions in real-time. Sends instant alerts to staff for <strong>prompt emergency response</strong>.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon"></div>
-                        <h3 class="feature-title">Smart Redirects</h3>
-                        <p class="feature-desc">Suggests nearby clinics, urgent care, or telemedicine if the hospital is crowded. Reduces congestion and improves patient convenience.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon"></div>
-                        <h3 class="feature-title">Predictive Staffing</h3>
-                        <p class="feature-desc">Uses AI to forecast patient inflow based on historical and real-time data. Helps hospitals <strong>allocate staff efficiently</strong>, reducing overload and wait times.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta" id="cta">
-        <div class="container">
-            <h2 class="cta-title">BE THE FIRST TO EXPERIENCE THE FUTURE OF HEALTHCARE</h2>
-            <div class="email-form-container">
-                <form class="email-form" id="emailForm">
-                    <input type="email" id="emailInput" placeholder="Enter your email address" required>
-                    <button type="submit" class="btn btn-cta">GET NOTIFIED</button>
-                </form>
-                <div class="success-message" id="successMessage">
-                    ✅ Thanks! You'll be notified on launch.
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Maintenance Modal -->
-    <div class="modal" id="maintenanceModal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <div class="modal-body">
-                <h2>🚧 This feature is under maintenance. We'll be live soon!</h2>
-            </div>
-        </div>
+  <section id="initials">
+    <h3>Phase One: <span style="color:#3eb489;">Initials</span></h3>
+    <p class="subtitle">Essential features that revolutionize the healthcare experience from day one</p>
+    <div class="features">
+      <div class="card"><img src="https://img.icons8.com/ios-filled/50/3eb489/clock--v1.png"/><h4>Real-time Wait Times</h4><p>View current wait times for different departments and services to plan your visit better.</p></div>
+      <div class="card"><img src="https://img.icons8.com/ios-filled/50/3eb489/touchscreen-smartphone.png"/><h4>Digital Check-in</h4><p>Skip the front desk queue by checking in directly from your phone or computer.</p></div>
+      <div class="card"><img src="https://img.icons8.com/ios-filled/50/3eb489/document.png"/><h4>Pre-registration</h4><p>Fill forms and upload documents online before arrival to save time and reduce paperwork.</p></div>
+      <div class="card"><img src="https://img.icons8.com/ios-filled/50/3eb489/appointment-reminders.png"/><h4>Notifications</h4><p>Get instant updates about wait times, appointment slots, and directions to your hospital.</p></div>
     </div>
+  </section>
 
-    <script src="js/script.js"></script>
+  <section id="beyond">
+    <h3>Phase Two: <span style="color:#00cfff;">Beyond</span></h3>
+    <p class="subtitle">Advanced AI-powered features that take Venicura to the next level</p>
+    <div class="features">
+      <div class="card"><img src="https://img.icons8.com/ios-filled/50/00cfff/artificial-intelligence.png"/><h4>AI Symptom Triage</h4><p>Enter your symptoms and get severity scoring to prioritize your care.</p></div>
+      <div class="card"><img src="https://img.icons8.com/ios-filled/50/00cfff/queue.png"/><h4>Dynamic Queue</h4><p>Critical patients get prioritized automatically with AI-driven queue management.</p></div>
+      <div class="card"><img src="https://img.icons8.com/ios-filled/50/00cfff/siren.png"/><h4>Emergency Alerts</h4><p>AI detects worsening symptoms and alerts staff instantly for faster response.</p></div>
+      <div class="card"><img src="https://img.icons8.com/ios-filled/50/00cfff/organization.png"/><h4>Predictive Staffing</h4><p>AI forecasts patient inflow so hospitals can schedule staff more efficiently.</p></div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Venicura. All rights reserved. | About | Contact | Privacy
+  </footer>
+
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <h2>🚧 Under Construction</h2>
+      <p>This feature is coming soon. Stay tuned!</p>
+      <button class="close-btn" onclick="closeModal()">Close</button>
+    </div>
+  </div>
+
+  <script>
+    // Modal functions
+    function openModal() {
+      document.getElementById("modal").style.display = "flex";
+    }
+    function closeModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+
+    // Reveal animation on scroll
+    const cards = document.querySelectorAll(".card");
+    const revealOnScroll = () => {
+      const windowHeight = window.innerHeight;
+      cards.forEach(card => {
+        const position = card.getBoundingClientRect().top;
+        if (position < windowHeight - 100) {
+          card.classList.add("reveal");
+        }
+      });
+    };
+    window.addEventListener("scroll", revealOnScroll);
+    window.addEventListener("load", revealOnScroll);
+  </script>
 </body>
 </html>
